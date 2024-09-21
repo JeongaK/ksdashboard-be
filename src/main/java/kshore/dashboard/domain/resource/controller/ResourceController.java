@@ -1,9 +1,10 @@
 package kshore.dashboard.domain.resource.controller;
 
 import kshore.dashboard.domain.resource.dto.CreateResourceDto;
-import kshore.dashboard.domain.resource.dto.ResourceDto;
 import kshore.dashboard.domain.resource.entity.Resource;
 import kshore.dashboard.domain.resource.service.ResourceService;
+import kshore.dashboard.exception.ApiResponse;
+import kshore.dashboard.exception.SuccessCode;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -22,7 +23,8 @@ public class ResourceController {
         log.info("controller - getResourceById: {}", id);
         Resource resource = resourceService.getResourceById(id);
         log.info("success to getResourceById");
-        return ResponseEntity.ok(resource);
+        //return ResponseEntity.ok(resource);
+        return ApiResponse.success(SuccessCode.GET_SUCCESS, resource);
     }
 
     @PostMapping("/resource/signup")
@@ -30,7 +32,8 @@ public class ResourceController {
         log.info("controller.createResource: {}", dto);
         Resource resource = resourceService.saveResource(Resource.toEntity(dto));
         log.info("success to controller.createResource");
-        return ResponseEntity.status(HttpStatus.CREATED).body(resource);
+        //return ResponseEntity.status(HttpStatus.CREATED).body(resource);
+        return ApiResponse.success(SuccessCode.CREATE_SUCCESS,resource);
     }
 
 }
