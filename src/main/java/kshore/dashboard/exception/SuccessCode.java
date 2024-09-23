@@ -11,7 +11,8 @@ public enum SuccessCode {
     GET_SUCCESS(OK, "조회 성공"),
     CREATE_SUCCESS(CREATED, "생성 성공"),
     UPDATE_SUCCESS(OK, "수정 성공"),
-    DELETE_SUCCESS(OK, "삭제 성공");
+    DELETE_SUCCESS(OK, "삭제 성공"),
+    EMAIL_CODE_SENT_SUCCESS(OK, "이메일 인증 코드가 전송되었습니다.");
 
     private final HttpStatus status;
     private final String message;

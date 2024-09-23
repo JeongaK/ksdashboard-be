@@ -1,6 +1,5 @@
 package kshore.dashboard.domain.resource.dto;
 
-import jakarta.validation.constraints.NotBlank;
 import kshore.dashboard.domain.resource.entity.Resource;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,16 +10,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Builder
-public class CreateResourceDto {
+public class UpdateResourceDto {
     private String name;
     private String password;
-    private String email;
+    private String profileImg;
 
-    public static CreateResourceDto toDto(Resource resource) {
-        return CreateResourceDto.builder()
+    public static UpdateResourceDto toDto(Resource resource) {
+        return UpdateResourceDto.builder()
                 .name(resource.getName())
                 .password(resource.getPassword())
-                .email(resource.getEmail())
+                .profileImg(resource.getProfileImg())
                 .build();
     }
 }

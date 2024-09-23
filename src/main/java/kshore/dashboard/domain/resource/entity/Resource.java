@@ -3,6 +3,7 @@ package kshore.dashboard.domain.resource.entity;
 import jakarta.persistence.*;
 import kshore.dashboard.domain.resource.dto.CreateResourceDto;
 import kshore.dashboard.domain.resource.dto.ResourceDto;
+import kshore.dashboard.domain.resource.dto.UpdateResourceDto;
 import kshore.dashboard.util.enums.ExpLevel;
 import kshore.dashboard.util.enums.Gender;
 import kshore.dashboard.util.enums.KoreanLevel;
@@ -105,4 +106,11 @@ public class Resource {
                 .build();
     }
 
+    public static Resource toEntity(UpdateResourceDto dto) {
+        return Resource.builder()
+                .name(dto.getName())
+                .password(dto.getPassword())
+                .profileImg(dto.getProfileImg())
+                .build();
+    }
 }
